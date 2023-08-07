@@ -30,18 +30,19 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Zip Up Node Modules
+      - name: Zip Up Python env
         run: |
           cd antenv
           tar -zcf ../antenv.tar.gz .
+          
+      - name: Remove Virtual Environment Folder    
+        run: rm -rf antenv
       
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
           name: python-app
-          path: | 
-                .
-                #!./antenv
+          path: .
   deploy:
     runs-on: ubuntu-latest
     needs: build
