@@ -33,6 +33,9 @@ jobs:
       - name: Troubleshooting
         run: ls -la antenv/bin
 
+      - name: Troubleshooting
+        run: ls -la antenv/lib64/python3.9/site-packages
+
       - name: Zip Up Python env
         run: |
           cd antenv
