@@ -16,30 +16,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Set up Python version
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-
-      - name: Create and start virtual environment
-        run: |
-          python -m venv antenv
-          source antenv/bin/activate
-          pip install -r requirements.txt
-          
-      - name: Troubleshooting
-        run: tree -a antenv
-
-      - name: Troubleshooting
-        run: ls -la antenv/lib64/python3.9/site-packages
-
-      - name: Troubleshooting
-        run: ls -la antenv/lib/python3.9/site-packages
-
-      - name: Troubleshooting
-        run: pip list
-        
+      
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
