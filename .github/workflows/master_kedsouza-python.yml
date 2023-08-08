@@ -39,15 +39,7 @@ jobs:
 
       - name: Troubleshooting
         run: pip list
-
-      - name: Zip Up Python env
-        run: |
-          cd antenv
-          tar -zcf ../antenv.tar.gz .
-          
-      - name: Remove Virtual Environment Folder    
-        run: rm -rf antenv
-      
+        
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
@@ -66,10 +58,7 @@ jobs:
         with:
           name: python-app
           path: .
-
-      - name: Unzip Antenv
-        run: tar -xvf antenv.tar.gz --one-top-level
-
+          
       - name: Troubleshooting
         run: ls -la antenv/bin
           
