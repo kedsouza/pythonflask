@@ -17,10 +17,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
-        id: deploy-to-webapp
-        with:
-          app-name: 'kedsouza-python'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C2F450D9FA0B4AE5A63EFB197D8B8E0F }}
+      - name: docker test
+        run: docker run -it hello-world
+      
+#       - name: 'Deploy to Azure Web App'
+#         uses: azure/webapps-deploy@v2
+#         id: deploy-to-webapp
+#         with:
+#           app-name: 'kedsouza-python'
+#           slot-name: 'Production'
+#           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C2F450D9FA0B4AE5A63EFB197D8B8E0F }}
