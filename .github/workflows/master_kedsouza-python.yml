@@ -24,7 +24,10 @@ jobs:
         run: ls -la
 
       - name: Tar to preserve symlinks in antenv
-        run: tar -cfz antenv.tar.gz .
+        run: | 
+              base=$(basename $PWD)
+              cd ..
+              tar -czf $base.tar.gz $base
         
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
