@@ -22,8 +22,10 @@ jobs:
       
       - name: test
         run: ls -la
-    
-      
+
+      - name: Tar to preserve symlinks in antenv
+        run: tar -cfv antenv.tar antenv
+        
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
