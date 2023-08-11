@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: docker test
-        run: docker run -it -v $(pwd):/home/site/wwwroot mcr.microsoft.com/appsvc/python:3.9_20230717.5 "python -m venv antenv --system-site-packages && pip install -r requirements.txt"
+        run: docker run -v $(pwd):/home/site/wwwroot mcr.microsoft.com/appsvc/python:3.9_20230717.5 "python -m venv antenv --system-site-packages && pip install -r requirements.txt"
       
       - name: test
         run: ls -la
