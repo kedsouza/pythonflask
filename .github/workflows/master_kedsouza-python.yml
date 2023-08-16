@@ -40,15 +40,6 @@ jobs:
       - name: d
         run: ls -la antenv/lib/python3.9/site-packages
 
-      - name: Tar to preserve symlinks in antenv
-        run: | 
-              base=$(basename $PWD)
-              cd ..
-              tar -czf $base.tar.gz $base
-              cd $base
-              sudo rm -rf *
-              cp ../$base.tar.gz .
-        
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
