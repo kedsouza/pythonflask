@@ -21,7 +21,10 @@ jobs:
         run: docker run -v $(pwd):/home/site/wwwroot mcr.microsoft.com/appsvc/python:3.9_20230717.5 "python -m venv tenv --system-site-packages && pip install -r requirements.txt"
       
       - name: test
-        run: ls -la
+        run: ls -la 
+
+      - name: d
+        run: ls -la /tenv/lib/python3.9/site-packages
 
       - name: Tar to preserve symlinks in antenv
         run: | 
