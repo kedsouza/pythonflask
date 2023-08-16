@@ -17,14 +17,29 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: docker test
-        run: docker run -v $(pwd):/home/site/wwwroot mcr.microsoft.com/appsvc/python:3.9_20230717.5 "python -m venv tenv --system-site-packages && pip install -r requirements.txt"
+      # - name: docker test
+      #   run: docker run -v $(pwd):/home/site/wwwroot mcr.microsoft.com/appsvc/python:3.9_20230717.5 "python -m venv tenv --system-site-packages && pip install -r requirements.txt"
+
+      - uses: actions/checkout@v2
+
+      - name: Set up Python version
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.9'
+
+      - name: Create and start virtual environment
+        run: |
+          python -m venv antenv
+          source antenv/bin/activate
       
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+     
       - name: test
         run: ls -la 
 
       - name: d
-        run: ls -la tenv/lib/python3.9/site-packages
+        run: ls -la antenv/lib/python3.9/site-packages
 
       - name: Tar to preserve symlinks in antenv
         run: | 
