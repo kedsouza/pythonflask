@@ -31,10 +31,9 @@ jobs:
         run: |
           python -m venv antenv
           source antenv/bin/activate
-      
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-     
+          echo "VIRTUAL ENV:" $VIRTUAL_ENV
+          pip install -r requirements.txt
+          
       - name: test
         run: ls -la 
 
