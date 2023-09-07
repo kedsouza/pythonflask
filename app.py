@@ -10,7 +10,6 @@ import seaborn
 import SQLAlchemy
 import streamlit
 import zipp
-import Flask-Compress
 
 from flask_cors import CORS
 
